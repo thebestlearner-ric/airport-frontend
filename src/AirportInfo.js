@@ -9,7 +9,7 @@ function AirportInfo() {
   };
 
   const getAirportInfo = async () => {
-    const response = await fetch(`http://0.0.0.0:5000/all_airports`);
+    const response = await fetch(`http://localhost:5000/all_airports`);
     const data = await response.json();
     setAirportInfo(data);
   };
