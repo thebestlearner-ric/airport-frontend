@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function AirportInfo() {
   const [icaoCode, setIcaoCode] = useState('');
   const [airportInfo, setAirportInfo] = useState(null);
-
+  const [jsonString, setJsonString] = useState('');
   const handleInputChange = (e) => {
     setIcaoCode(e.target.value);
   };
@@ -13,6 +13,7 @@ function AirportInfo() {
     const response = await fetch(`/all_airports`);
     const data = await response.json();
     setAirportInfo(data);
+    setJsonString(JSON.stringify(data, null, 2));
   };
 
   return (
@@ -35,6 +36,12 @@ function AirportInfo() {
           <p>Name: {airportInfo.name}</p>
           <p>City: {airportInfo.city}</p>
           <p>Country: {airportInfo.country}</p>
+        </div>
+      )}
+      {jsonString && (
+        <div>
+          <h3>JSON String</h3>
+          <pre>{jsonString}</pre>
         </div>
       )}
     </div>
