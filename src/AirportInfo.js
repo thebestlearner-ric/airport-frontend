@@ -9,7 +9,8 @@ function AirportInfo() {
   };
 
   const getAirportInfo = async () => {
-    const response = await fetch(`http://backend-service.air.svc.cluster.local:5000/all_airports`);
+    // const response = await fetch(`http://backend-service.air.svc.cluster.local:5000/all_airports`);
+    const response = await fetch(`/all_airports`);
     const data = await response.json();
     setAirportInfo(data);
   };
